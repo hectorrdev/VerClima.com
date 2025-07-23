@@ -4,3 +4,4 @@ REQUERIMIENTOS :
 -requests
 -Flask
 -deep Translator
+-gunicorn
