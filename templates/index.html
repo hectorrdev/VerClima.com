@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>VerClima.com | ver clima en tiempo real solo utilizando el nombre de tu ciudad.</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}" type="image/x-icon">
+        <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+    </head>
+<body>
+    <div class="contenedor">
+    <form action="{{url_for('obtenerClima')}}" method="post">
+        <div class="contenido">
+        <label for="icono"><i class="fa-solid fa-location-dot"></i></label>
+        <input type="text" placeholder="Ingrese su ubicación" name="ciudad">
+        <button role="button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <div class="carta {% if mostrar_carta %}open{% endif %}">
+            <p class="imagen"><img src={{imagen}} alt="imagen"></p>
+            <p class="ciudad">{{ciudad}}</p>
+            <p class="grados">{{grados}}°ᶜ</p>
+            <p class="descripcion">{{descripcion}}</p>
+            <div class="abajo">
+                <p class="humedad"><i class="fa-solid fa-droplet"></i> Humedad:{{humedad}}%</p>
+                <p class="humedad"><i class="fa-solid fa-wind"></i> Viento:{{viento}}kph</p>
+            </div>
+        </div>    
+        </div>
+    </form>
+</div>
+    <script src="https://kit.fontawesome.com/252d77dbca.js" crossorigin="anonymous"></script>
+
+</body>
+</html>
